@@ -3,7 +3,7 @@
 [![Pub Version](https://img.shields.io/pub/v/deepseek_api)](https://pub.dev/packages/deepseek_api)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-A modern Flutter package for seamless integration with DeepSeek's powerful AI APIs. Supports all major features including chat completions, model management, and streaming.
+A modern Flutter package for seamless integration with DeepSeek's powerful AI APIs. Supports all major features, including chat completions, model management, and streaming.
 
 ## Installation
 
@@ -25,7 +25,7 @@ flutter pub get
 ```dart
 import 'package:deepseek_api/deepseek_api.dart';
 
-final deepseek = DeepSeekClient(
+final deepseek = DeepSeekAPI(
   apiKey: 'your-api-key',
   // Optional: baseUrl: 'https://api.deepseek.com/v1' (default)
 );
@@ -129,10 +129,9 @@ try {
 final customDio = Dio()
   ..interceptors.add(LogInterceptor());
 
-final client = DeepSeekClient(
+final deepseek = DeepSeekAPI(
   apiKey: 'your-key',
   baseUrl: 'https://api.deepseek.com/v2', // Custom endpoint
-  dio: customDio, // Inject custom Dio client
 );
 ```
 
@@ -160,3 +159,4 @@ MIT License - See [LICENSE](https://github.com/your/repo/blob/main/LICENSE) for 
 ---
 
 *Disclaimer*: This package is not officially affiliated with DeepSeek. Always refer to the [official API documentation](https://platform.deepseek.com/docs) for the most accurate information.
+

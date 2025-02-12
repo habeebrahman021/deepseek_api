@@ -1,3 +1,7 @@
+## 0.0.4
+
+* Fixes and Enhancements
+
 ## 0.0.3
 
 * Fixes and Enhancements
