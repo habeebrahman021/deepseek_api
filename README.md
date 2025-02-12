@@ -11,7 +11,7 @@ Add the following dependency to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  deepseek_api: ^0.0.5
+  deepseek_api: ^0.0.6
 ```
 
 Then run:
@@ -151,10 +151,6 @@ We welcome contributions! Please:
 3. Submit a PR with tests
 
 [📌 Report Issues](https://github.com/your/repo/issues) | [📖 View Source](https://github.com/your/repo)
-
-## License
-
-MIT License - See [LICENSE](https://github.com/your/repo/blob/main/LICENSE) for details.
 
 ---
 

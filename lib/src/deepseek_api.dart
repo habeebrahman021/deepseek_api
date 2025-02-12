@@ -3,10 +3,17 @@ import 'package:deepseek_api/src/exceptions.dart';
 import 'package:deepseek_api/src/models.dart';
 import 'package:dio/dio.dart';
 
+/// DeepSeekAPI provides methods to interact with the DeepSeek API.
+///
+/// This class handles authentication, error handling, and API requests.
 class DeepSeekAPI {
   final Dio _dio;
   final String _apiKey;
 
+  /// Creates an instance of [DeepSeekAPI].
+  ///
+  /// Requires an [apiKey] for authentication.
+  /// Optionally, a [baseUrl] can be provided (default: 'https://api.deepseek.com/v1').
   DeepSeekAPI({
     required String apiKey,
     String baseUrl = 'https://api.deepseek.com/v1',
@@ -21,10 +28,22 @@ class DeepSeekAPI {
     ));
   }
 
+  /// Creates a chat completion request.
+  ///
+  /// Sends a request with the provided [ChatCompletionRequest] and returns a [ChatCompletionResponse].
+  /// Optionally, a [cancelToken] can be provided to cancel the request.
+  ///
+  /// Throws:
+  /// - [BadRequestException] for invalid requests.
+  /// - [UnauthorizedException] if authentication fails.
+  /// - [RateLimitException] if rate limits are exceeded.
+  /// - [ServerException] for server errors.
+  /// - [ApiException] for other API-related errors.
+  /// - [NetworkException] for network failures.
   Future<ChatCompletionResponse> createChatCompletion(
-    ChatCompletionRequest request, {
-    CancelToken? cancelToken,
-  }) async {
+      ChatCompletionRequest request, {
+        CancelToken? cancelToken,
+      }) async {
     try {
       final response = await _dio.post(
         '/chat/completions',
@@ -37,6 +56,16 @@ class DeepSeekAPI {
     }
   }
 
+  /// Retrieves a list of available models from the DeepSeek API.
+  ///
+  /// Returns a [ModelsListResponse] containing the list of models.
+  ///
+  /// Throws:
+  /// - [UnauthorizedException] if authentication fails.
+  /// - [RateLimitException] if rate limits are exceeded.
+  /// - [ServerException] for server errors.
+  /// - [ApiException] for other API-related errors.
+  /// - [NetworkException] for network failures.
   Future<ModelsListResponse> listModels() async {
     try {
       final response = await _dio.get('/models');
@@ -46,6 +75,9 @@ class DeepSeekAPI {
     }
   }
 
+  /// Handles API errors by mapping Dio exceptions to custom exceptions.
+  ///
+  /// Takes a [DioException] and returns an appropriate exception based on the HTTP status code.
   Exception _handleDioError(DioException e) {
     if (e.response != null) {
       final statusCode = e.response!.statusCode;
