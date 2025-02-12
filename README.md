@@ -1,4 +1,4 @@
-# DeepSeek API Flutter Package
+# DeepSeek API
 
 [![Pub Version](https://img.shields.io/pub/v/deepseek_api)](https://pub.dev/packages/deepseek_api)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
