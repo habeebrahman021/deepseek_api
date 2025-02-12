@@ -1,3 +1,4 @@
-## 0.0.1
+## 0.0.2
 
-* Initial Release
+* Documents updated
+* Example added
