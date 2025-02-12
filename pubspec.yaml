@@ -1,6 +1,6 @@
 name: deepseek_api
 description: A Flutter package for integrating with DeepSeek's API. Supports chat completions, model management, and streaming.
-version: 0.0.4
+version: 0.0.5
 homepage: https://github.com/habeebrahman021/deepseek_api
 repository: https://github.com/habeebrahman021/deepseek_api
 issue_tracker: https://github.com/habeebrahman021/deepseek_api/issues
