@@ -36,3 +36,9 @@ class ServerException extends ApiException {
   /// Creates a [ServerException] with the given [message].
   ServerException(super.message);
 }
+
+/// Exception thrown when the API returns an insufficient balance error.
+class InsufficientBalanceException extends ApiException {
+  /// Creates an [InsufficientBalanceException] with the given [message].
+  InsufficientBalanceException(super.message);
+}

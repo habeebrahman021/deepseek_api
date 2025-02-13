@@ -183,14 +183,15 @@ class ModelData {
   /// Type of the object (e.g., "model").
   final String object;
 
-  /// Timestamp of model creation.
-  final int created;
+  /// Owner of the model.
+  @JsonKey(name: 'owned_by')
+  final String? ownedBy;
 
   /// Constructor for creating a [ModelData] instance.
   ModelData({
     required this.id,
     required this.object,
-    required this.created,
+    required this.ownedBy,
   });
 
   /// Creates a [ModelData] instance from JSON.

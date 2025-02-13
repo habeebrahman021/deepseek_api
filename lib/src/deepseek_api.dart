@@ -83,20 +83,27 @@ class DeepSeekAPI {
   /// Takes a [DioException] and returns an appropriate exception based on the HTTP status code.
   Exception _handleDioError(DioException e) {
     if (e.response != null) {
-      final statusCode = e.response!.statusCode;
-      final data = e.response!.data;
-
+      final statusCode = e.response?.statusCode ?? 500;
+      final data = e.response?.data as Map<String, dynamic>?;
+      final error = data?['error'] as Map<String, dynamic>?;
+      final message = error?['message'] as String?;
       switch (statusCode) {
         case 400:
-          return BadRequestException(data['error'] ?? 'Invalid request');
+        case 422:
+          return BadRequestException(message ?? 'Invalid request');
         case 401:
-          return UnauthorizedException(data['error'] ?? 'Unauthorized');
+          return UnauthorizedException(message ?? 'Unauthorized');
+        case 402:
+          return InsufficientBalanceException(
+            message ?? 'Insufficient Balance',
+          );
         case 429:
-          return RateLimitException(data['error'] ?? 'Rate limit exceeded');
+          return RateLimitException(message ?? 'Rate limit exceeded');
         case 500:
-          return ServerException(data['error'] ?? 'Server error');
+        case 503:
+          return ServerException(message ?? 'Server error');
         default:
-          return ApiException(data['error'] ?? 'Unknown API error');
+          return ApiException(message ?? 'Unknown API error');
       }
     }
     return NetworkException('Network error occurred');

@@ -64,17 +64,41 @@ ChatCompletionResponse _$ChatCompletionResponseFromJson(
           : Usage.fromJson(json['usage'] as Map<String, dynamic>),
     );
 
+Map<String, dynamic> _$ChatCompletionResponseToJson(
+        ChatCompletionResponse instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'object': instance.object,
+      'created': instance.created,
+      'model': instance.model,
+      'choices': instance.choices,
+      'usage': instance.usage,
+    };
+
 ChatChoice _$ChatChoiceFromJson(Map<String, dynamic> json) => ChatChoice(
       index: (json['index'] as num).toInt(),
       message: ChatMessage.fromJson(json['message'] as Map<String, dynamic>),
       finishReason: json['finishReason'] as String?,
     );
 
+Map<String, dynamic> _$ChatChoiceToJson(ChatChoice instance) =>
+    <String, dynamic>{
+      'index': instance.index,
+      'message': instance.message,
+      'finishReason': instance.finishReason,
+    };
+
 Usage _$UsageFromJson(Map<String, dynamic> json) => Usage(
       promptTokens: (json['promptTokens'] as num).toInt(),
       completionTokens: (json['completionTokens'] as num).toInt(),
       totalTokens: (json['totalTokens'] as num).toInt(),
     );
+
+Map<String, dynamic> _$UsageToJson(Usage instance) => <String, dynamic>{
+      'promptTokens': instance.promptTokens,
+      'completionTokens': instance.completionTokens,
+      'totalTokens': instance.totalTokens,
+    };
 
 ModelsListResponse _$ModelsListResponseFromJson(Map<String, dynamic> json) =>
     ModelsListResponse(
@@ -83,8 +107,19 @@ ModelsListResponse _$ModelsListResponseFromJson(Map<String, dynamic> json) =>
           .toList(),
     );
 
+Map<String, dynamic> _$ModelsListResponseToJson(ModelsListResponse instance) =>
+    <String, dynamic>{
+      'data': instance.data,
+    };
+
 ModelData _$ModelDataFromJson(Map<String, dynamic> json) => ModelData(
       id: json['id'] as String,
       object: json['object'] as String,
-      created: (json['created'] as num).toInt(),
+      ownedBy: json['owned_by'] as String?,
     );
+
+Map<String, dynamic> _$ModelDataToJson(ModelData instance) => <String, dynamic>{
+      'id': instance.id,
+      'object': instance.object,
+      'owned_by': instance.ownedBy,
+    };
