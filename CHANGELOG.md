@@ -1,3 +1,8 @@
+## 0.0.8
+
+* API Documentations Updated
+* Fixes and Enhancements
+
 ## 0.0.7
 
 * API Documentations Updated
