@@ -14,7 +14,7 @@ void main() async {
 
     // Example: Create a chat completion
     final chatRequest = ChatCompletionRequest(
-      model: 'gpt-3.5-turbo', // Replace with a valid model ID
+      model: 'deepseek-chat', // Replace with a valid model ID
       messages: [
         ChatMessage(role: 'user', content: 'Hello, how are you?'),
       ],
