@@ -1,3 +1,8 @@
+## 0.1.0
+
+* API Documentations Updated
+* Issue Fixes & Enhancements
+
 ## 0.0.9
 
 * Fixes and Enhancements
