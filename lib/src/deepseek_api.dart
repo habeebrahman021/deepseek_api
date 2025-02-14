@@ -3,11 +3,11 @@ import 'package:deepseek_api/src/exceptions.dart';
 import 'package:deepseek_api/src/models.dart';
 import 'package:dio/dio.dart';
 
-class DeepSeekClient {
+class DeepSeekAPI {
   final Dio _dio;
   final String _apiKey;
 
-  DeepSeekClient({
+  DeepSeekAPI({
     required String apiKey,
     String baseUrl = 'https://api.deepseek.com/v1',
   })  : _apiKey = apiKey,

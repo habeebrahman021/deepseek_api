@@ -1,11 +1,11 @@
-import 'package:deepseek_api/src/deepseek_client.dart';
+import 'package:deepseek_api/src/deepseek_api.dart';
 import 'package:deepseek_api/src/exceptions.dart';
 import 'package:deepseek_api/src/models.dart';
 import 'package:flutter/foundation.dart';
 
 void main() async {
   // Initialize the DeepSeekClient with your API key
-  final client = DeepSeekClient(apiKey: 'your_api_key_here');
+  final client = DeepSeekAPI(apiKey: 'your_api_key_here');
 
   try {
     // Example: List available models
