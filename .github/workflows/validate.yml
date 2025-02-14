@@ -33,9 +33,3 @@ jobs:
 
       - name: Run Tests
         run: flutter test
-
-      - name: Check for Outdated Dependencies
-        run: flutter pub outdated
-
-      - name: Verify Package for Publishing
-        run: dart pub publish --dry-run

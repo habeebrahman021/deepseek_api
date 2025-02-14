@@ -3,7 +3,7 @@ import 'package:json_annotation/json_annotation.dart';
 part 'models.g.dart';
 
 /// Represents a request to the chat completion API.
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class ChatCompletionRequest {
   /// The model to use for the chat completion.
   final String model;
@@ -15,15 +15,19 @@ class ChatCompletionRequest {
   final double? temperature;
 
   /// The maximum number of tokens to generate.
+  @JsonKey(name: 'max_tokens')
   final int? maxTokens;
 
   /// Nucleus sampling parameter, controlling diversity of responses.
+  @JsonKey(name: 'top_p')
   final double? topP;
 
   /// Penalizes new tokens based on frequency in the input.
+  @JsonKey(name: 'frequency_penalty')
   final double? frequencyPenalty;
 
   /// Penalizes new tokens based on their presence in the input.
+  @JsonKey(name: 'presence_penalty')
   final double? presencePenalty;
 
   /// List of tokens where the API should stop generating further tokens.
@@ -58,7 +62,7 @@ class ChatCompletionRequest {
 }
 
 /// Represents a chat message in the conversation.
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class ChatMessage {
   /// The role of the message sender (e.g., "system", "user", "assistant").
   final String role;
@@ -78,7 +82,7 @@ class ChatMessage {
 }
 
 /// Represents a response from the chat completion API.
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class ChatCompletionResponse {
   /// Unique identifier for the response.
   final String id;
@@ -111,10 +115,13 @@ class ChatCompletionResponse {
   /// Creates a [ChatCompletionResponse] instance from JSON.
   factory ChatCompletionResponse.fromJson(Map<String, dynamic> json) =>
       _$ChatCompletionResponseFromJson(json);
+
+  /// Converts the instance to JSON.
+  Map<String, dynamic> toJson() => _$ChatCompletionResponseToJson(this);
 }
 
 /// Represents a choice within a chat completion response.
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class ChatChoice {
   /// Index of the choice in the response.
   final int index;
@@ -123,6 +130,7 @@ class ChatChoice {
   final ChatMessage message;
 
   /// Reason why the generation stopped (if applicable).
+  @JsonKey(name: 'finish_reason')
   final String? finishReason;
 
   /// Constructor for creating a [ChatChoice] instance.
@@ -135,18 +143,24 @@ class ChatChoice {
   /// Creates a [ChatChoice] instance from JSON.
   factory ChatChoice.fromJson(Map<String, dynamic> json) =>
       _$ChatChoiceFromJson(json);
+
+  /// Converts the instance to JSON.
+  Map<String, dynamic> toJson() => _$ChatChoiceToJson(this);
 }
 
 /// Represents token usage statistics.
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class Usage {
   /// Number of tokens used in the prompt.
+  @JsonKey(name: 'prompt_tokens')
   final int promptTokens;
 
   /// Number of tokens generated in the completion.
+  @JsonKey(name: 'completion_tokens')
   final int completionTokens;
 
   /// Total number of tokens used in the request.
+  @JsonKey(name: 'total_tokens')
   final int totalTokens;
 
   /// Constructor for creating a [Usage] instance.
@@ -158,10 +172,13 @@ class Usage {
 
   /// Creates a [Usage] instance from JSON.
   factory Usage.fromJson(Map<String, dynamic> json) => _$UsageFromJson(json);
+
+  /// Converts the instance to JSON.
+  Map<String, dynamic> toJson() => _$UsageToJson(this);
 }
 
 /// Represents the response containing a list of available models.
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class ModelsListResponse {
   /// List of available models.
   final List<ModelData> data;
@@ -172,10 +189,13 @@ class ModelsListResponse {
   /// Creates a [ModelsListResponse] instance from JSON.
   factory ModelsListResponse.fromJson(Map<String, dynamic> json) =>
       _$ModelsListResponseFromJson(json);
+
+  /// Converts the instance to JSON.
+  Map<String, dynamic> toJson() => _$ModelsListResponseToJson(this);
 }
 
 /// Represents metadata about a specific model.
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class ModelData {
   /// Unique identifier for the model.
   final String id;
@@ -197,4 +217,7 @@ class ModelData {
   /// Creates a [ModelData] instance from JSON.
   factory ModelData.fromJson(Map<String, dynamic> json) =>
       _$ModelDataFromJson(json);
+
+  /// Converts the instance to JSON.
+  Map<String, dynamic> toJson() => _$ModelDataToJson(this);
 }

@@ -16,12 +16,16 @@ class DeepSeekAPI {
   /// Creates an instance of [DeepSeekAPI].
   ///
   /// Requires an [apiKey] for authentication.
-  /// Optionally, a [baseUrl] can be provided (default: 'https://api.deepseek.com/v1').
+  ///
+  /// Optional parameters:
+  /// - [baseUrl]: Base URL for API endpoints (default: 'https://api.deepseek.com/v1')
+  /// - [dio]: Custom Dio instance. If not provided, a default instance with [baseUrl] will be created.
   DeepSeekAPI({
     required String apiKey,
     String baseUrl = 'https://api.deepseek.com/v1',
+    Dio? dio,
   })  : _apiKey = apiKey,
-        _dio = Dio(BaseOptions(baseUrl: baseUrl)) {
+        _dio = dio ?? Dio(BaseOptions(baseUrl: baseUrl)) {
     _dio.interceptors.add(InterceptorsWrapper(
       onRequest: (options, handler) {
         options.headers['Authorization'] = 'Bearer $_apiKey';
