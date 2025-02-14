@@ -150,7 +150,7 @@ We welcome contributions! Please:
 2. Create your feature branch
 3. Submit a PR with tests
 
-[📌 Report Issues](https://github.com/your/repo/issues) | [📖 View Source](https://github.com/your/repo)
+[📌 Report Issues](https://github.com/habeebrahman021/deepseek_api/issues) | [📖 View Source](https://github.com/habeebrahman021/deepseek_api/repo)
 
 ---
 
