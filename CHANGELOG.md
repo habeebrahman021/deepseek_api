@@ -1,5 +1,10 @@
 ## 0.0.5
 
+* API Documentations Updated
+* Fixes and Enhancements
+
+## 0.0.5
+
 * Fixes and Enhancements
 
 ## 0.0.4
