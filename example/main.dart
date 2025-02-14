@@ -10,8 +10,7 @@ void main() async {
     // Example: List available models
     final modelsResponse = await client.listModels();
 
-      print('Available Models: ${modelsResponse.data}');
-
+    print('Available Models: ${modelsResponse.data}');
 
     // Example: Create a chat completion
     final chatRequest = ChatCompletionRequest(
@@ -22,21 +21,16 @@ void main() async {
     );
 
     final chatResponse = await client.createChatCompletion(chatRequest);
-      print('Chat Completion Response: ${chatResponse.choices}');
+    print('Chat Completion Response: ${chatResponse.choices}');
   } on BadRequestException catch (e) {
-      print('Bad Request: ${e.message}');
-
+    print('Bad Request: ${e.message}');
   } on UnauthorizedException catch (e) {
-      print('Unauthorized: ${e.message}');
-
+    print('Unauthorized: ${e.message}');
   } on RateLimitException catch (e) {
-      print('Rate Limit Exceeded: ${e.message}');
-
+    print('Rate Limit Exceeded: ${e.message}');
   } on ServerException catch (e) {
-      print('Server Error: ${e.message}');
-
+    print('Server Error: ${e.message}');
   } on ApiException catch (e) {
-      print('API Error: ${e.message}');
-
+    print('API Error: ${e.message}');
   }
 }
