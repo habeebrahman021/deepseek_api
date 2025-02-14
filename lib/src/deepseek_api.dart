@@ -7,7 +7,10 @@ import 'package:dio/dio.dart';
 ///
 /// This class handles authentication, error handling, and API requests.
 class DeepSeekAPI {
+  /// The base URL for the DeepSeek API.
   final Dio _dio;
+
+  /// The API key for authentication.
   final String _apiKey;
 
   /// Creates an instance of [DeepSeekAPI].
@@ -41,9 +44,9 @@ class DeepSeekAPI {
   /// - [ApiException] for other API-related errors.
   /// - [NetworkException] for network failures.
   Future<ChatCompletionResponse> createChatCompletion(
-      ChatCompletionRequest request, {
-        CancelToken? cancelToken,
-      }) async {
+    ChatCompletionRequest request, {
+    CancelToken? cancelToken,
+  }) async {
     try {
       final response = await _dio.post(
         '/chat/completions',
