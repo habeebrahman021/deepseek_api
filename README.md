@@ -12,7 +12,7 @@ Add the following dependency to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  deepseek_api: ^0.1.0
+  deepseek_api: ^0.1.1
 ```
 
 Then run:
