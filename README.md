@@ -1,5 +1,6 @@
 # DeepSeek API
 
+![Validate](https://github.com/habeebrahman021/deepseek_api/actions/workflows/validate.yml/badge.svg)
 [![Pub Version](https://img.shields.io/pub/v/deepseek_api)](https://pub.dev/packages/deepseek_api)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
